@@ -1,0 +1,10 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+- pipeline.id: logstash-1
+  path.config: "/usr/share/logstash/pipeline/logstash-local-1.conf"
+- pipeline.id: logstash-2
+  path.config: "/usr/share/logstash/pipeline/logstash-local-2.conf"
+- pipeline.id: logstash-3
+  path.config: "/usr/share/logstash/pipeline/logstash-local-3.conf"

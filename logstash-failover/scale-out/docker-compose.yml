@@ -1,0 +1,20 @@
+version: '2.2'
+services:  
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.12.1
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    volumes:
+      - ./pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash-local-1.conf/:/usr/share/logstash/pipeline/logstash-local-1.conf
+      - ./logstash-local-2.conf/:/usr/share/logstash/pipeline/logstash-local-2.conf
+      - ./logstash-local-3.conf/:/usr/share/logstash/pipeline/logstash-local-3.conf
+
+networks:
+  default:
+    external:
+      name: elastic
